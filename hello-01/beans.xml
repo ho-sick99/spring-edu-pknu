@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- java 객체를 은유적으로 표현한 것이 bean(커피콩) -->
+	<bean id="gr" class="GreetingEn"> <!-- 자식 환영 클래스 하나만 등록 -->
+	<!-- <bean id="gr" class="Greeting"> -> 부모 클래스 사용하고 싶을시 class property만 수정 -->
+	</bean>
+
+</beans>
