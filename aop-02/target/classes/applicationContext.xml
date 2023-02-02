@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="mc" class="di_02.service.MyCalc">
+	</bean>
+	<bean id="mcAspect" class="di_02.aspect.MyCalcAspect">
+	</bean>
+
+	<aop:config>
+		<aop:aspect id="MyCalcAspect" ref="mcAspect">
+			<!-- <aop:after-returning method="afterReturning" returning="ret" pointcut="execution(* 
+				di_02.service.MyCalc.*(double))" /> -->
+
+			<aop:around method="aroundAdvice"
+				pointcut="execution(* di_02.service.MyCalc.*(double))" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>
