@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 어노테이션 활성화 설정 -->
+	<context:annotation-config></context:annotation-config> <!-- annotation을 통해 bean을 등록할 것임 -->
+	<context:component-scan base-package="di_02"></context:component-scan> <!-- base-package에서 어노테이션을 찾아라 -->
+	<!-- 어노테이션 사용시 동일한 클래스를 태그로 등록하면 안됨 (중복되기 때문) -->
+</beans>

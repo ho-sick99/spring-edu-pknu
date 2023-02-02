@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="gr" class="di_01.Greeting">
+		<!-- property 태그를 통해 필드 초기화 -->
+		<property name="log" ref="dbmsLog" /> <!-- 다른 bean 사용 시 ref 및 bean의 id값 -> 사용하고자 하는 클래스와 연결: Dependency Injection -->
+		<!-- property: set 메서드를 호출하겠다! 따라서, setName()과 동일한 의미 -->
+		<property name="name" value="홍길동"></property>
+		<!-- <property name="age" value="" /> -> setAge 메서드가 없으므로 오류! -->
+	</bean>
+	<!-- myLog는 가끔, 혹은 안 사용하므로, lazy-init 프로퍼티를 통해 myLog가 필요할때까지 안 만들고 있다가 필요할때 
+		생성 -->
+	<!-- 메모리 절약, 속도 상승 등의 효과 -> 그냥 무조건 하는게 이득 아닌가? -->
+	<bean id="myLog" class="di_01.MyLog" lazy-init="true">
+	</bean>
+	<bean id="myLogFile" class="di_01.MyLogFile">
+		<property name="filename" value="myLog.log" />
+	</bean>
+	<!-- DBMS 사용시, DBip, 유저명, 암호 설정 -->
+	<bean id="dbmsLog" class="di_01.DBMSLog">
+		<!-- 생성자 초기화 -->
+		<constructor-arg value="127.0.0.1"></constructor-arg>
+		<constructor-arg value="user1"></constructor-arg>
+		<constructor-arg value="pass1"></constructor-arg>
+		<!-- <property name="ip" value="localhost(127.0.0.1)" /> <property name="user" 
+			value="user1" /> <property name="pass" value="pass1" /> -->
+	</bean>
+	<!-- 싱글톤: 하나만가지고 재활용 / 프로토타입: 계속 새거 만듬 -->
+	<bean id="myCalc" class="di_01.MyCalc" scope="prototype">
+	</bean>
+
+</beans>
