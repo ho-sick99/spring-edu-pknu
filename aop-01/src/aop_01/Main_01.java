@@ -1,9 +1,9 @@
-package di_02;
+package aop_01;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import di_02.service.Greeting;
+import aop_01.service.Greeting;
 
 public class Main_01 {
 

@@ -5,22 +5,22 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<bean id="gr" class="di_02.service.Greeting">
+	<bean id="gr" class="aop_01.service.Greeting">
 		<property name="name" value="홍길동" />
 	</bean>
-	<bean id="myLog" class="di_02.aspect.MyLogAspect">
+	<bean id="myLog" class="aop_01.aspect.MyLogAspect">
 	</bean>
 
 	<aop:config>
-		<!-- <aop:pointcut id="get" expression="execution(* di_02.service.Greeting.getMessage(..))" 
+		<!-- <aop:pointcut id="get" expression="execution(* aop_01.service.Greeting.getMessage(..))" 
 			/> -->
 		<aop:aspect id="myLogAspect" ref="myLog">
 			<!-- <aop:before method="beforeAdvice" pointcut-ref="get" /> -->
-			<!-- <aop:before method="beforeAdvice" pointcut="execution(* di_02.service.Greeting.setName(..))" 
+			<!-- <aop:before method="beforeAdvice" pointcut="execution(* aop_01.service.Greeting.setName(..))" 
 				/> <aop:after-returning method="afterReturning" returning="o" pointcut="execution(* 
-				di_02.service.Greeting.getMessage(..))" /> -->
+				aop_01.service.Greeting.getMessage(..))" /> -->
 			<aop:around method="aroundAdvice"
-				pointcut="execution(* di_02.service.Greeting.getMessage(..))" />
+				pointcut="execution(* aop_01.service.Greeting.getMessage(..))" />
 		</aop:aspect>
 	</aop:config>
 

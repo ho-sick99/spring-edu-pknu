@@ -1,4 +1,4 @@
-package di_02.log;
+package aop_01.log;
 
 import org.springframework.stereotype.Component;
 

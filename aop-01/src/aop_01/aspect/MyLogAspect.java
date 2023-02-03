@@ -1,4 +1,4 @@
-package di_02.aspect;
+package aop_01.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

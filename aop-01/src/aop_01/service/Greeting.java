@@ -1,4 +1,4 @@
-package di_02.service;
+package aop_01.service;
 
 import javax.annotation.Resource;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import di_02.log.MyLog;
+import aop_01.log.MyLog;
 
 @Component
 @Scope("prototype")

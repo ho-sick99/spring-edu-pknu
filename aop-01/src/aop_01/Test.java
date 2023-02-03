@@ -1,7 +1,7 @@
-package di_02;
+package aop_01;
 
-import di_02.log.MyLog;
-import di_02.log.MyLogFile;
+import aop_01.log.MyLog;
+import aop_01.log.MyLogFile;
 
 public class Test {
 
