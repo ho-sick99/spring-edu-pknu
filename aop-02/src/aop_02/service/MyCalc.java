@@ -1,5 +1,8 @@
-package di_02.service;
+package aop_02.service;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MyCalc {
 	private double res = 0;
 

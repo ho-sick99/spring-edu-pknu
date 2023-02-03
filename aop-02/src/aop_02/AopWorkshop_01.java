@@ -1,16 +1,16 @@
-package di_02;
+package aop_02;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import di_02.service.MyCalc;
+import aop_02.service.MyCalc;
 
 public class AopWorkshop_01 {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext context = 
-				new ClassPathXmlApplicationContext("applicationContext.xml");
+				new ClassPathXmlApplicationContext("applicationContext_annotation.xml");
 		MyCalc mc = context.getBean(MyCalc.class);
 		mc.plus(10); //더하기
 		mc.multiple(10); //곱하기
