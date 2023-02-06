@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookMapper">
+
+	<select id="selectOne" resultType="jdbc02.vo.BookVo">
+		select * from BOOK where title =
+		#{title}
+	</select>
+	<select id="selectAll" resultType="jdbc02.vo.BookVo">
+		select * from BOOK ORDER BY mid asc
+	</select>
+	<insert id="insert">
+		insert into BOOK(title, publisher, writer, price)
+		values(#{title},
+		#{publisher},
+		#{writer}, #{price}) <!-- mybatis 자체의 매핑규칙 -->
+	</insert>
+	<update id="update"> <!-- 태그는 상관없음 -->
+		update BOOK set publisher=#{publisher},
+		writer=#{writer},
+		price=#{price} where title=#{title}
+	</update>
+
+</mapper>
