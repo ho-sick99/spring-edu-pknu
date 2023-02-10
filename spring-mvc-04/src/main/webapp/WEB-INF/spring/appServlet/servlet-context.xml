@@ -48,7 +48,7 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="ds" />
 		<beans:property name="mapperLocations"
-			value="classpath:/mybatis/mapper/MemberMapper.xml" />
+			value="classpath:/mybatis/mapper/*Mapper.xml" />
 	</beans:bean>
 
 	<beans:bean id="sqlSessoinTemplate"

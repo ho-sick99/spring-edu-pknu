@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardMapper">
+
+	<select id="selectOne" resultType="com.jhmoon.mvc04.vo.BoardVo">
+		select * from BOARD where no = #{no}
+	</select>
+	<select id="selectAll" resultType="com.jhmoon.mvc04.vo.BoardVo"> <!-- resultType은 반드시 기술하여야 함 -->
+		select * from BOARD ORDER BY no desc
+	</select>
+	<insert id="insert" parameterType="com.jhmoon.mvc04.vo.BoardVo"> <!-- parameterType은 기술하지 않아도 됨 -->
+		insert into BOARD(no, title, writer, content, regdate, hitcount,
+		passwd)
+		values(BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{content},
+		to_char(SYSDATE, 'YYYY-MM-DD'), 0, #{passwd}) <!-- SYSDATE: 현재시간을 의미, to_char(): 
+			형식에 맞게 시간을 변환 -->
+	</insert>
+	<update id="update"> <!-- 태그는 상관없음 -->
+		update BOARD set title=#{title}, content=#{content},=where
+		no=#{no}
+	</update>
+	<delete id="delete">
+		delete from BOARD where no = #{no}
+	</delete>
+
+</mapper>
