@@ -80,7 +80,7 @@ public class BoardController {
 	public String update_post(Model model, @RequestParam BoardVo vo // 파라미터와 동일한 이름의 변수에 자동 저장
 	) {
 		try {
-			BoardVo vo = boardDao.selectOne(vo.getNo());
+			BoardVo vo2 = boardDao.selectOne(vo.getNo());
 			if (vo.getPasswd().equals(vo))
 				boardDao.update(vo);
 			model.addAttribute("msg", "수정 성공!");
